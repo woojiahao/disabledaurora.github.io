@@ -1,6 +1,8 @@
 // Colours
 
 $darkbg: linear-gradient(#1c0522, #05205b);
+$darkbgc: #05205b;
+$darkbgl: linear-gradient(#05205b, #1c0522);
 $lightbg: linear-gradient(rgb(178, 220, 255), rgb(255, 255, 255));
 $lightbgls: linear-gradient(rgba(178, 220, 255, 0.65), rgba(255, 255, 255, 0.65));
 $darkft: white;
@@ -17,6 +19,11 @@ $lightft: rgb(37, 0, 131);
 }
 
 #particles-js {
+    width: 100%;
+    height: 100vh;
+}
+
+#particles-js1 {
     width: 100%;
     height: 100vh;
 }
@@ -123,7 +130,7 @@ section {
         z-index: 9;
     }
 
-    .particles-js-canvas-el {
+    .particles-js-canvas-el{
         display: block;
         background: $darkbg;
     }
