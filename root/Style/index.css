@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Comfortaa', sans-serif;
+  scroll-behavior: smooth;
+}
+
+#particles-js {
+  width: 100%;
+  height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  background: -webkit-gradient(linear, left top, left bottom, from(#1c0522), to(#05205b));
+  background: linear-gradient(#1c0522, #05205b);
+  overflow-x: hidden;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5em 1.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 10000;
+}
+
+header .ico {
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header ul li {
+  list-style: none;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+}
+
+header ul li a {
+  text-decoration: none;
+  padding: 0.3em 0.5em;
+  color: white;
+  border-radius: 5px;
+}
+
+header ul li a:hover, header ul li a.active {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(178, 220, 255, 0.65)), to(rgba(255, 255, 255, 0.65)));
+  background: linear-gradient(rgba(178, 220, 255, 0.65), rgba(255, 255, 255, 0.65));
+  -webkit-box-shadow: 7px 7px 14px #1c0b38, -7px -7px 14px #3a1572;
+          box-shadow: 7px 7px 14px #1c0b38, -7px -7px 14px #3a1572;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #250083;
+}
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow: hidden;
+}
+
+section.top::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25em;
+  background: -webkit-gradient(linear, left bottom, left top, from(#1c0522), to(transparent));
+  background: linear-gradient(to top, #1c0522, transparent);
+  z-index: 1000;
+}
+
+section img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+section img#moon {
+  mix-blend-mode: screen;
+}
+
+section img#mountf {
+  z-index: 10;
+}
+
+section #intro {
+  position: absolute;
+  right: -420px;
+  color: white;
+  white-space: nowrap;
+  font-size: 10.5vw;
+  z-index: 9;
+}
+
+section .particles-js-canvas-el {
+  display: block;
+  background: -webkit-gradient(linear, left top, left bottom, from(#1c0522), to(#05205b));
+  background: linear-gradient(#1c0522, #05205b);
+}
+
+section .content {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  color: white;
+  padding-top: 50px;
+  pointer-events: none;
+}
+
+section .content h2 {
+  font-size: 3.5em;
+  margin-bottom: 10px;
+}
+
+section .content p {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+/*# sourceMappingURL=index.css.map */

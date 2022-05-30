@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+    
+<!-- head -->
+
+<head>
+    <meta charset="utf-8">
+    <title>Portfolio for ES — Ngee Ann</title>
+    <meta name="description" content="This website is entitled to Subramanian Gururam of Engineering Science,
+    Ngee Ann Polytechnic, batch 2020. The purpose of this documentation is to prepare for any E-portfolio
+    requirements that may be posed upon me in the near future." />
+    <link rel="stylesheet" type="text/css" href="/root/Style/index.css">
+</head>
+
+<!-- body -->
+
+<body>
+    <header>
+        <a href="#mainsrc" class="ico">Guru</a>
+        <ul>
+            <li>
+                
+            </li>
+        </ul>
+    </header>
+    <section class="top" id="mainsrc">
+        <img src="/Multimedia/stars_1.webp" id="stars">
+        <img src="/Multimedia/moon_1.webp" id="moon">
+        <img src="/Multimedia/mountains_behind_1.webp" id="mountb">
+        <h2 id="intro">Bonjour!</h2>
+        <img src="/Multimedia/mountains_front_1.webp" id="mountf">
+    </section>
+    <section>
+        <div id="particles-js">
+            <div class="content" id="about-me">
+                <h2>
+                    About me
+                </h2>
+                <p>
+                    fbeuwrvfousabhfevbehfsdjncj
+                    <br>
+                    iewhofgrbuvjdcdwoikebujf
+                    <br>
+                    ewjoiohrbgveudosjiekwfbjhvv
+                    <br>
+                    jdwjbevhefiwbovuhcodjbasnj
+                </p>
+            </div>
+        </div>
+        <script>
+            let stars = document.getElementById('stars');
+            let moon = document.getElementById('moon');
+            let mountb = document.getElementById('mountb');
+            let txt = document.getElementById('intro');
+            let mountf = document.getElementById('mountf');
+            let header = document.querySelector('header');
+
+            window.addEventListener('scroll', function(){
+                let i = window.scrollY;
+                stars.style.left = i * 0.25 + 'px';
+                moon.style.top = i * 1.05 + 'px';
+                mountb.style.top = i * 0.5 + 'px';
+                mountf.style.top = i * 0.0 + 'px';
+                txt.style.marginRight = i * 3 + 'px';
+                txt.style.marginTop = i * 1.15 + 'px';
+                header.style.top = i * 0.5 + 'px';
+            })
+        </script>
+        <script src="/root/Particles/particles.js"></script>
+        <script src="/root/Particles/app.js"></script>
+    </section>
+</body>
+
+</html>
