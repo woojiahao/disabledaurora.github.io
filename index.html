@@ -5,12 +5,14 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Portfolio for ES — Ngee Ann</title>
+    <title>Portfolio</title>
     <meta name="description" content="This website is entitled to Subramanian Gururam of Engineering Science,
     Ngee Ann Polytechnic, batch 2020. The purpose of this documentation is to prepare for any E-portfolio
     requirements that may be posed upon me in the near future." />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/root/Style/index.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <!-- body -->
@@ -18,20 +20,41 @@
 <body>
     <header>
         <a href="#mainsrc" class="ico">Guru</a>
-        <ul>
+        <!-- <ul>
             <li>
 
             </li>
-        </ul>
+        </ul> -->
     </header>
     <section class="top" id="mainsrc">
-        <img src="/Multimedia/stars_1.webp" id="stars" alt="Spread out white star like figures to create ambience">
+        <img src="/Multimedia/starsEx.webp" id="stars" alt="Spread out white star like figures to create ambience">
         <img src="/Multimedia/moon_1.webp" id="moon" alt="Moon is quite of the hallmark of the parallax design">
         <img src="/Multimedia/mountains_behind_1.webp" id="mountb"
-            alt="Mountain range, associated toe being the background">
+            alt="Mountain range, associated to being the background">
         <h2 id="intro">Bonjour!</h2>
         <img src="/Multimedia/mountains_front_1.webp" id="mountf"
-            alt="Mountain range, associated toe being the foreground">
+            alt="Mountain range, associated to being the foreground">
+        <div class="scroll-down"></div>
+        <div class="menu" id="fmenu">
+            <a href="#mainsrc" class="items"><span class="material-symbols-rounded active">
+                    home
+                </span></a>
+            <a href="#about-me" class="items"><span class="material-symbols-rounded">
+                    account_circle
+                </span></a>
+            <a href="#about-me2" class="items"><span class="material-symbols-rounded">
+                    school
+                </span></a>
+            <a href="#" class="items"><span class="material-symbols-rounded">
+                    work_history
+                </span></a>
+            <a href="#" class="items"><span class="material-symbols-rounded">
+                    network_intelligence
+                </span></a>
+            <a href="#" class="items"><span class="material-symbols-rounded">
+                    contact_page
+                </span></a>
+        </div>
     </section>
     <section>
         <div id="particles-js">
@@ -53,7 +76,7 @@
     </section>
     <section>
         <div id="particles-js1">
-            <div class="content" id="about-me">
+            <div class="content" id="about-me2">
                 <h2>
                     About me
                 </h2>
@@ -79,14 +102,30 @@
 
         window.addEventListener('scroll', function () {
             let i = window.scrollY;
-            stars.style.left = i * 0.25 + 'px';
-            moon.style.top = i * 1.05 + 'px';
+            stars.style.left = -i * 7 + 'px';
+            moon.style.top = -i * 1.05 + 'px';
             mountb.style.top = i * 0.5 + 'px';
             mountf.style.top = i * 0.0 + 'px';
             txt.style.marginRight = i * 3 + 'px';
             txt.style.marginTop = i * 1.15 + 'px';
             header.style.top = i * 0.5 + 'px';
         })
+    </script>
+    <script>
+        var Head = document.getElementById("fmenu");
+        var btns = Head.getElementsByClassName("material-symbols-rounded");
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                var current = document.getElementsByClassName("active");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active", "");
+                }
+                this.className += " active";
+            });
+        }
+    </script>
+    <script>
+        
     </script>
     <script src="/root/Particles/particles.js"></script>
     <script src="/root/Particles/app.js"></script>
