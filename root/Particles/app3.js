@@ -11,7 +11,7 @@ particlesJS.load('particles-js', 'particles.json', function() {
 
 /* Otherwise just put the config content (json): */
 
-particlesJS('particles-js',
+particlesJS('particles-js3',
 
 {
   "particles": {
@@ -103,11 +103,11 @@ particlesJS('particles-js',
         }
       },
       "bubble": {
-        "distance": 10000,
-        "size": 8,
-        "duration": 0.05,
-        "opacity": 100,
-        "speed": 10
+        "distance": 400,
+        "size": 4.060386061506726,
+        "duration": 2,
+        "opacity": 8,
+        "speed": 3
       },
       "repulse": {
         "distance": 750,
