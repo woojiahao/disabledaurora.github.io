@@ -223,13 +223,13 @@ body {
             height: 100%;
             object-fit: cover;
 
-            &#moon {
-                mix-blend-mode: screen;
-            }
-
             &#mountf {
                 z-index: 10;
-                animation: fmount 0.5s ease-in-out infinite;
+                // animation: fmount 0.5s ease-in-out infinite, fmountb 15s ease-in-out infinite;
+                animation-name: fmount, fmountb;
+                animation-duration: 0.5s, 15s;
+                animation-timing-function: ease-in-out, ease-in-out;
+                animation-iteration-count: infinite, infinite;
             }
 
             &#mountb {
@@ -238,9 +238,11 @@ body {
 
             &#stars {
                 width: auto;
+                animation: stars 15s ease-in-out infinite;
             }
 
             &#moon {
+                mix-blend-mode: screen;
                 animation: moon 15s ease-in-out infinite;
             }
         }
@@ -265,6 +267,27 @@ body {
             display: flex;
             flex-direction: column;
 
+            h2 {
+                padding: 0.5em;
+                font-size: 2vmax;
+            }
+
+            p {
+                line-height: 2.5vmin;
+                font-size: 0.95vmax;
+                margin-bottom: 10px;
+
+                @media screen and (max-width: 1500px) {
+                    line-height: 2.1vmax;
+                    font-size: 1.4vmax;
+                }
+
+                @media screen and (max-width: 465px) {
+                    line-height: 2vmax;
+                    font-size: 1.3vmax;
+                }
+            }
+
             .block {
                 height: 75%;
                 width: 85%;
@@ -282,8 +305,66 @@ body {
                     }
 
                     .column {
-                        flex: 50%;
+                        flex: 1;
                         display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        .stage-cube-cont{
+                            // width: 50%;
+                            // height: 100%;
+                            // padding-top: 18%;
+                            // top: 0;
+                            // margin-left: 0;
+                            // right: 0;
+                            // margin: auto;
+                            // position: absolute;
+                            // overflow: hidden;
+                            padding-bottom: 200px;
+
+                            .cubespinner{
+                                animation-name: spincube;
+                                animation-timing-function: ease-in-out;
+                                animation-iteration-count: infinite;
+                                animation-duration: 12s;
+                                transform-style: preserve-3d;
+                                transform-origin: 100px 100px 0;
+                                margin-left: calc(50% - 100px);
+
+                                div{
+                                    position: absolute;
+                                    width: 200px;
+                                    height: 200px;
+                                    border: 1px solid #ccc;
+                                    background:rgba(255, 255, 255, 0.4);
+                                    font-size: 100px;
+                                    text-align: center;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    box-shadow: 0 0 20px 0px lightyellow;
+
+                                    &.face1{
+                                        transform: translateZ(100px);
+                                    }
+                                    &.face2{
+                                        transform: rotateY(90deg) translateZ(100px);
+                                    }
+                                    &.face3{
+                                        transform: rotateY(90deg) rotateX(90deg) translateZ(100px);
+                                    }
+                                    &.face4{
+                                        transform: rotateY(180deg) rotateZ(90deg) translateZ(100px);
+                                    }
+                                    &.face5{
+                                        transform: rotateY(-90deg) rotateZ(90deg) translateZ(100px);
+                                    }
+                                    &.face6{
+                                        transform: rotateX(-90deg) translateZ(100px);
+                                    }
+                                }
+                            }
+                        }
 
                         .tt {
                             background: $lightbgls;
@@ -307,17 +388,6 @@ body {
                         }
                     }
                 }
-            }
-
-            h2 {
-                padding: 0.5em;
-                font-size: 2vmax;
-            }
-
-            p {
-                line-height: 2.5vmin;
-                font-size: 0.95vmax;
-                margin-bottom: 10px;
             }
         }
     }
@@ -392,47 +462,96 @@ body {
         }
     }
 
-    @keyframes bmount {
+    @keyframes fmountb {
         0% {
-            filter: drop-shadow(0px 0px #1b0622) blur(5px) brightness(1.4);
+            filter: brightness(1.5)
         }
 
         25% {
-            filter: drop-shadow(-1px -1px 2px #1b0622)blur(5px);
+            filter: brightness(1);
         }
 
         50% {
-            filter: drop-shadow(0px 0px #1b0622) blur(5px) brightness(1.4);
+            filter: brightness(1.5);
         }
 
         75% {
-            filter: drop-shadow(1px 1px 2px #1b0622) blur(5px);
+            filter: brightness(1);
         }
 
         100% {
-            filter: drop-shadow(0px 0px #1b0622) blur(5px) brightness(1.4);
+            filter: brightness(1.5);
+        }
+    }
+
+    @keyframes bmount {
+        0% {
+            filter: blur(5px) brightness(2);
+        }
+
+        25% {
+            filter: blur(5px);
+        }
+
+        50% {
+            filter: blur(5px) brightness(2);
+        }
+
+        75% {
+            filter: blur(5px);
+        }
+
+        100% {
+            filter: blur(5px) brightness(2);
         }
     }
 
     @keyframes moon {
         0% {
-            filter: brightness(1.4);
+            filter: brightness(2.5);
         }
 
         25% {
-            filter: brightness(0.6);
+            filter: brightness(0.5);
         }
 
         50% {
-            filter: brightness(1.4);
+            filter: brightness(2.5);
         }
 
         75% {
-            filter: brightness(0.6);
+            filter: brightness(0.5);
         }
 
         100% {
-            filter: brightness(1.4);
+            filter: brightness(2.5);
+        }
+    }
+
+    @keyframes stars {
+        0% {
+            filter: brightness(2);
+            opacity: 1;
+        }
+
+        25% {
+            // filter: brightness(0);
+            opacity: 0.2;
+        }
+
+        50% {
+            filter: brightness(2);
+            opacity: 1;
+        }
+
+        75% {
+            // filter: brightness(0);
+            opacity: 0.2;
+        }
+
+        100% {
+            filter: brightness(2);
+            opacity: 1;
         }
     }
 
@@ -455,6 +574,28 @@ body {
 
         100% {
             opacity: 0;
+        }
+    }
+
+    @keyframes spincube {
+        from,
+        to{
+            transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+        }
+        16%{
+            transform: rotateY(-90deg);
+        }
+        33%{
+            transform: rotateY(-90deg) rotateZ(90deg);
+        }
+        50%{
+            transform: rotateY(-180deg) rotateZ(90deg);
+        }
+        66%{
+            transform: rotateY(-270deg) rotateZ(90deg);
+        }
+        83%{
+            transform: rotateX(90deg);
         }
     }
 }
