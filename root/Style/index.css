@@ -85,6 +85,10 @@ body header {
   z-index: 10000;
 }
 
+body header a > pre::before {
+  content: "gururam@dev:~$ ";
+}
+
 body header ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -246,14 +250,8 @@ body section img {
 
 body section img#mountf {
   z-index: 10;
-  -webkit-animation-name: fmount, fmountb;
-          animation-name: fmount, fmountb;
-  -webkit-animation-duration: 0.5s, 15s;
-          animation-duration: 0.5s, 15s;
-  -webkit-animation-timing-function: ease-in-out, ease-in-out;
-          animation-timing-function: ease-in-out, ease-in-out;
-  -webkit-animation-iteration-count: infinite, infinite;
-          animation-iteration-count: infinite, infinite;
+  -webkit-animation: fmountb 15s ease-in-out infinite;
+          animation: fmountb 15s ease-in-out infinite;
 }
 
 body section img#mountb {
@@ -269,8 +267,6 @@ body section img#stars {
 
 body section img#moon {
   mix-blend-mode: screen;
-  -webkit-animation: moon 15s ease-in-out infinite;
-          animation: moon 15s ease-in-out infinite;
 }
 
 body section #intro {
@@ -333,6 +329,260 @@ body section .content .block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+
+body section .content .block.edu figure {
+  background: transparent;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 1em;
+  width: calc(50% + 1px);
+  height: 100%;
+  margin: 0 auto 10vh 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  -webkit-box-shadow: 4px -4px 8px rgba(0, 0, 0, 0.4);
+          box-shadow: 4px -4px 8px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 930px) {
+  body section .content .block.edu figure {
+    width: 100%;
+  }
+}
+
+body section .content .block.edu figure:nth-of-type(2n)::after {
+  right: 45%;
+  left: 5vmin;
+}
+
+body section .content .block.edu section {
+  background: #e5e5e5;
+  border-radius: 1em;
+  width: calc(50% + 1px);
+  height: 100%;
+  margin: 0 0 0 auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5vmin;
+  -webkit-box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.4);
+          box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 930px) {
+  body section .content .block.edu section {
+    width: 100%;
+  }
+}
+
+body section .content .block.edu figure:nth-of-type(1) {
+  margin: 0 0 10vh 0;
+  width: 50%;
+}
+
+@media screen and (max-width: 930px) {
+  body section .content .block.edu figure:nth-of-type(1) {
+    width: 100%;
+  }
+}
+
+body section .content .block.edu figure:nth-of-type(2n) {
+  margin: 0 0 10vh auto;
+  -webkit-box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.4);
+          box-shadow: -4px -4px 8px rgba(0, 0, 0, 0.4);
+}
+
+body section .content .block.edu section:nth-of-type(2n) {
+  margin: 0 auto 10vh 0;
+  -webkit-box-shadow: 4px -4px 8px rgba(0, 0, 0, 0.4);
+          box-shadow: 4px -4px 8px rgba(0, 0, 0, 0.4);
+}
+
+body section .content .block.edu figure:last-of-type,
+body section .content .block.edu section:last-of-type {
+  margin-bottom: 0;
+}
+
+body section .content .block.edu section::before {
+  background: inherit;
+  z-index: 1;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 7vmin;
+  height: 7vmin;
+  -webkit-transform: translate(calc(-50% + 1px), -50%) rotate(-45deg);
+          transform: translate(calc(-50% + 1px), -50%) rotate(-45deg);
+  -webkit-clip-path: polygon(-15% -15%, 110% 0%, 0% 110%);
+          clip-path: polygon(-15% -15%, 110% 0%, 0% 110%);
+  -webkit-box-shadow: -4px -2px 8px rgba(0, 0, 0, 0.4);
+          box-shadow: -4px -2px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 1.5vmin 0 0 0;
+}
+
+body section .content .block.edu section:nth-of-type(2n)::before {
+  left: auto;
+  right: 0;
+  -webkit-transform: translate(calc(50% - 1px), -50%) rotate(-45deg) scale(-1);
+          transform: translate(calc(50% - 1px), -50%) rotate(-45deg) scale(-1);
+}
+
+body section .content .block.edu section::after {
+  content: '';
+  position: absolute;
+  top: 5vmin;
+  right: 45%;
+  bottom: 5vmin;
+  left: 5vmin;
+  border: 2px dashed #fff;
+  outline: 1px solid #fff;
+  outline-offset: -5vmin;
+  -webkit-backdrop-filter: invert(1);
+          backdrop-filter: invert(1);
+  pointer-events: none;
+}
+
+body section .content .block.edu section:nth-of-type(2n):after {
+  right: 5vmin;
+  left: 45%;
+}
+
+body section .content .block.edu figure img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+}
+
+body section .content .block.edu section > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  padding: 1rem;
+}
+
+body section .content .block.edu h1,
+body section .content .block.edu h2 {
+  mix-blend-mode: difference;
+}
+
+body section .content .block.edu div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body section .content .block.edu div > h3 {
+  font-size: calc(5vmin + 3vmax);
+  text-align: center;
+  font-weight: 700;
+  line-height: 1;
+  word-spacing: .5rem;
+}
+
+body section .content .block.edu p {
+  mix-blend-mode: difference;
+}
+
+body section .content .block.edu a {
+  color: transparent;
+  -webkit-text-stroke: 2px #212121;
+  text-decoration: none;
+  font-weight: 900;
+  letter-spacing: 2px;
+  mix-blend-mode: difference;
+}
+
+body section .content .block.edu a:hover,
+body section .content .block.edu a:focus {
+  -webkit-text-stroke: 1px #999;
+}
+
+body section .content .block .wrapper {
+  margin-top: 100px;
+  padding-top: 150px;
+  padding-bottom: 1em;
+  max-width: 90%;
+  margin: 0 auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+body section .content .block .card {
+  top: 30px;
+  position: -webkit-sticky;
+  position: sticky;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  color: #333;
+  padding: 40px;
+  border-radius: 1em;
+  margin-bottom: 20px;
+}
+
+body section .content .block .card h2 {
+  padding: 0;
+}
+
+body section .content .block .card span {
+  display: block;
+  font-size: 14px;
+  color: #0c4eb9;
+}
+
+body section .content .block .card:nth-child(1n) {
+  top: 20px;
+}
+
+body section .content .block .card:nth-child(2n) {
+  top: 40px;
+}
+
+body section .content .block .card:nth-child(3n) {
+  top: 60px;
+}
+
+body section .content .block .card:nth-child(4n) {
+  top: 80px;
+}
+
+body section .content .block .card:nth-child(5n) {
+  top: 100px;
+}
+
+body section .content .block .card:nth-child(6n) {
+  top: 120px;
+}
+
+body section .content .block .card:nth-child(7n) {
+  top: 140px;
+}
+
+body section .content .block .card:nth-child(8n) {
+  top: 160px;
 }
 
 body section .content .block .row {
@@ -491,52 +741,6 @@ body section .content .block .row .column .tt .candid {
   }
 }
 
-@-webkit-keyframes fmount {
-  0% {
-    -webkit-filter: drop-shadow(0px 0px #1b0622);
-            filter: drop-shadow(0px 0px #1b0622);
-  }
-  25% {
-    -webkit-filter: drop-shadow(1px 1px 2px #1b0622) drop-shadow(-1px -1px 2px #fff);
-            filter: drop-shadow(1px 1px 2px #1b0622) drop-shadow(-1px -1px 2px #fff);
-  }
-  50% {
-    -webkit-filter: drop-shadow(0px 0px #1b0622);
-            filter: drop-shadow(0px 0px #1b0622);
-  }
-  75% {
-    -webkit-filter: drop-shadow(-1px -1px 2px #1b0622) drop-shadow(1px 1px 2px #fff);
-            filter: drop-shadow(-1px -1px 2px #1b0622) drop-shadow(1px 1px 2px #fff);
-  }
-  100% {
-    -webkit-filter: drop-shadow(0px 0px #1b0622);
-            filter: drop-shadow(0px 0px #1b0622);
-  }
-}
-
-@keyframes fmount {
-  0% {
-    -webkit-filter: drop-shadow(0px 0px #1b0622);
-            filter: drop-shadow(0px 0px #1b0622);
-  }
-  25% {
-    -webkit-filter: drop-shadow(1px 1px 2px #1b0622) drop-shadow(-1px -1px 2px #fff);
-            filter: drop-shadow(1px 1px 2px #1b0622) drop-shadow(-1px -1px 2px #fff);
-  }
-  50% {
-    -webkit-filter: drop-shadow(0px 0px #1b0622);
-            filter: drop-shadow(0px 0px #1b0622);
-  }
-  75% {
-    -webkit-filter: drop-shadow(-1px -1px 2px #1b0622) drop-shadow(1px 1px 2px #fff);
-            filter: drop-shadow(-1px -1px 2px #1b0622) drop-shadow(1px 1px 2px #fff);
-  }
-  100% {
-    -webkit-filter: drop-shadow(0px 0px #1b0622);
-            filter: drop-shadow(0px 0px #1b0622);
-  }
-}
-
 @-webkit-keyframes fmountb {
   0% {
     -webkit-filter: brightness(1.5);
@@ -626,52 +830,6 @@ body section .content .block .row .column .tt .candid {
   100% {
     -webkit-filter: blur(5px) brightness(2);
             filter: blur(5px) brightness(2);
-  }
-}
-
-@-webkit-keyframes moon {
-  0% {
-    -webkit-filter: brightness(2.5);
-            filter: brightness(2.5);
-  }
-  25% {
-    -webkit-filter: brightness(0.5);
-            filter: brightness(0.5);
-  }
-  50% {
-    -webkit-filter: brightness(2.5);
-            filter: brightness(2.5);
-  }
-  75% {
-    -webkit-filter: brightness(0.5);
-            filter: brightness(0.5);
-  }
-  100% {
-    -webkit-filter: brightness(2.5);
-            filter: brightness(2.5);
-  }
-}
-
-@keyframes moon {
-  0% {
-    -webkit-filter: brightness(2.5);
-            filter: brightness(2.5);
-  }
-  25% {
-    -webkit-filter: brightness(0.5);
-            filter: brightness(0.5);
-  }
-  50% {
-    -webkit-filter: brightness(2.5);
-            filter: brightness(2.5);
-  }
-  75% {
-    -webkit-filter: brightness(0.5);
-            filter: brightness(0.5);
-  }
-  100% {
-    -webkit-filter: brightness(2.5);
-            filter: brightness(2.5);
   }
 }
 
