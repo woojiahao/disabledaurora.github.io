@@ -8,6 +8,14 @@ $lightbgls: linear-gradient(rgba(178, 220, 255, 0.35));
 $darkft: white;
 $lightft: rgb(37, 0, 131);
 
+:root {
+    --white: #afafaf;
+    --red: #e31b23;
+    --borderFormEls: hsl(0, 0%, 10%);
+    --bgFormEls: hsl(0, 0%, 14%);
+    --bgFormElsFocus: hsl(0, 7%, 20%);
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
 * {
@@ -19,6 +27,25 @@ $lightft: rgb(37, 0, 131);
     scroll-snap-type: y proximity;
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+::placeholder {
+    color: $darkft;
+    text-align: center;
+    opacity: 1;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: $darkft;
+    text-align: center;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: $darkft;
+    text-align: center;
 }
 
 ::-moz-selection {
@@ -323,11 +350,223 @@ body {
                 justify-content: center;
                 align-items: center;
 
+                // .txtd {
+                //     color: $darkft;
+                //     text-align: start;
+                //     mix-blend-mode: multiply;
+                //     border: 0px none;
+                //     height: 10%;
+                //     width: 55%;
+                //     border-radius: 1em;
+                //     background: rgba(72, 92, 129, 0.6);
+                //     box-shadow: 9px 9px 18px #323f59,
+                //         -9px -9px 18px #5e79a9;
+
+                //     &.large {
+                //         height: 40%;
+                //         width: 85%;
+                //     }
+                // }
+
+                .container {
+                    max-width: 100%;
+                    height: 100%;
+                    margin: 0 auto;
+                    padding: 0 1.5rem;
+                }
+
+                .my-form {
+                    width: 90%;
+                }
+
+                ul {
+                    list-style-type: none;
+                }
+
+                .my-form h1 {
+                    margin-bottom: 1.5rem;
+                }
+
+                .my-form li,
+                .my-form .grid>*:not(:last-child) {
+                    margin-bottom: 1.5rem;
+                }
+
+                .my-form input, 
+                .my-form button,
+                .my-form textarea {
+                    border-radius: 1em;
+                }
+
+                .my-form select,
+                .my-form input,
+                .my-form textarea,
+                .my-form button {
+                    width: 100%;
+                    line-height: 1.5;
+                    padding: 15px 10px;
+                    border: 1px solid var(--borderFormEls);
+                    color: var(--white);
+                    background: var(--bgFormEls);
+                    transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
+                        transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+                }
+
+                .my-form textarea {
+                    height: 170px;
+                }
+
+                .my-form ::placeholder {
+                    color: inherit;
+                    /*Fix opacity issue on Firefox*/
+                    opacity: 1;
+                }
+
+                .my-form select:focus,
+                .my-form input:focus,
+                .my-form textarea:focus,
+                .my-form button:enabled:hover,
+                .my-form button:focus {
+                    background: var(--bgFormElsFocus);
+                }
+
+                .my-form select:focus,
+                .my-form input:focus,
+                .my-form textarea:focus {
+                    transform: scale(1.02);
+                }
+
+                .my-form *:required,
+                .my-form select {
+                    background-repeat: no-repeat;
+                    background-position: center right 3%;
+                    background-size: 15px 15px;
+                }
+
+                .my-form *:required {
+                    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg);
+                }
+
+                .my-form select {
+                    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/down.svg);
+                }
+
+                .my-form *:disabled {
+                    cursor: default;
+                    filter: blur(2px);
+                }
+
+
+                /* FORM BTNS
+                  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+                .my-form .required-msg {
+                    display: none;
+                    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg) no-repeat center left / 15px 15px;
+                    padding-left: 20px;
+                }
+
+                .my-form .btn-grid {
+                    position: relative;
+                    overflow: hidden;
+                    transition: filter 0.2s;
+                }
+
+                .my-form button {
+                    font-weight: bold;
+                }
+
+                .my-form button>* {
+                    transition: transform 0.4s ease-in-out;
+                }
+
+                .my-form button .back {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-110%, -50%);
+                }
+
+                .my-form button:enabled:hover .back,
+                .my-form button:focus .back {
+                    transform: translate(-50%, -50%);
+                }
+
+                .my-form button:enabled:hover .front,
+                .my-form button:focus .front {
+                    transform: translateX(110%);
+                }
+
+
+                /* CUSTOM CHECKBOX
+                  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+                .my-form input[type="checkbox"] {
+                    position: absolute;
+                    left: -9999px;
+                }
+
+                .my-form input[type="checkbox"]+label {
+                    position: relative;
+                    display: inline-block;
+                    padding-left: 2rem;
+                    transition: background 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+                }
+
+                .my-form input[type="checkbox"]+label::before,
+                .my-form input[type="checkbox"]+label::after {
+                    content: '';
+                    position: absolute;
+                }
+
+                .my-form input[type="checkbox"]+label::before {
+                    left: 0;
+                    top: 6px;
+                    width: 18px;
+                    height: 18px;
+                    border: 2px solid var(--white);
+                }
+
+                .my-form input[type="checkbox"]:checked+label::before {
+                    background: var(--red);
+                }
+
+                .my-form .grid {
+                    display: grid;
+                    grid-gap: 1.5rem;
+                }
+
+                .my-form .grid-2 {
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .my-form .grid-3 {
+                    grid-template-columns: auto auto auto;
+                    align-items: center;
+                }
+
+                .my-form .grid>*:not(:last-child) {
+                    margin-bottom: 0;
+                }
+
+                .my-form .required-msg {
+                    display: block;
+                }
+
+                @media screen and (min-width: 541px) {
+                    .my-form input[type="checkbox"]+label::before {
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+
+                    .my-form input[type="checkbox"]:checked+label::after {
+                        top: 3px;
+                    }
+                }
+
                 .splide {
                     width: 75%;
 
                     @media screen and (max-width: 930px) {
-                        width: 100%;
+                        width: 85%;
                     }
                 }
 
@@ -372,7 +611,7 @@ body {
                 }
 
                 .splide__progress__bar {
-                    width: 0
+                    width: 1
                 }
 
                 .splide {
@@ -395,15 +634,25 @@ body {
                     margin: 0;
                     position: relative;
                     flex-direction: column;
+
+                    div>p {
+                        margin: auto;
+                    }
+
+                    div>p:first-child {
+                        padding-top: 1em;
+                    }
                 }
+
 
                 .splide__slide img {
                     vertical-align: bottom
                 }
 
-                .splide__slide i {
+                .splide__slide svg {
                     vertical-align: bottom;
-                    height: 80%;
+                    height: 30%;
+                    width: auto;
                 }
 
                 .splide__spinner {
@@ -600,7 +849,7 @@ body {
 
                 .splide__slide {
                     -webkit-tap-highlight-color: transparent;
-                    width: 50%;
+                    width: 33.3333333333333333333333333333333333333333333333333333333%;
 
                     @media screen and (max-width: 930px) {
                         width: 100%;
@@ -609,6 +858,10 @@ body {
                     display: flex;
                     align-items: center;
                     justify-content: center;
+
+                    div>p {
+                        max-width: 90%;
+                    }
                 }
 
                 .splide__slide:focus {
@@ -932,6 +1185,9 @@ body {
                     padding-top: 150px;
                     padding-bottom: 0%;
                     position: relative;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                     max-width: 100%;
                     height: 75vh;
                     margin: 0 auto;
@@ -964,7 +1220,7 @@ body {
                     }
                 }
 
-                @for $i from 1 through 8 {
+                @for $i from 1 through 100 {
                     .card:nth-child(#{$i}n) {
                         top: $i * 20px;
                     }
@@ -978,6 +1234,7 @@ body {
 
                     @media screen and (max-width: 1500px) {
                         flex-direction: column;
+                        row-gap: 6vh;
                     }
 
                     .column {

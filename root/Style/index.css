@@ -1,4 +1,13 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa&display=swap");
+:root {
+  --white: #afafaf;
+  --red: #e31b23;
+  --borderFormEls: hsl(0, 0%, 10%);
+  --bgFormEls: hsl(0, 0%, 14%);
+  --bgFormElsFocus: hsl(0, 7%, 20%);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +19,46 @@
       scroll-snap-type: y proximity;
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+  text-align: center;
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  color: white;
+  text-align: center;
+  opacity: 1;
+  /* Firefox */
+}
+
+::-ms-input-placeholder {
+  color: white;
+  text-align: center;
+  opacity: 1;
+  /* Firefox */
+}
+
+::placeholder {
+  color: white;
+  text-align: center;
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+  text-align: center;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+  text-align: center;
 }
 
 ::-moz-selection {
@@ -357,6 +406,235 @@ body section .content .block {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  /* FORM BTNS
+                  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  /* CUSTOM CHECKBOX
+                  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+}
+
+body section .content .block .container {
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+body section .content .block .my-form {
+  width: 90%;
+}
+
+body section .content .block ul {
+  list-style-type: none;
+}
+
+body section .content .block .my-form h1 {
+  margin-bottom: 1.5rem;
+}
+
+body section .content .block .my-form li,
+body section .content .block .my-form .grid > *:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+body section .content .block .my-form input,
+body section .content .block .my-form button,
+body section .content .block .my-form textarea {
+  border-radius: 1em;
+}
+
+body section .content .block .my-form select,
+body section .content .block .my-form input,
+body section .content .block .my-form textarea,
+body section .content .block .my-form button {
+  width: 100%;
+  line-height: 1.5;
+  padding: 15px 10px;
+  border: 1px solid var(--borderFormEls);
+  color: var(--white);
+  background: var(--bgFormEls);
+  -webkit-transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25), -webkit-transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+  transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25), -webkit-transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+  transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25), transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+  transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25), transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25), -webkit-transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+body section .content .block .my-form textarea {
+  height: 170px;
+}
+
+body section .content .block .my-form ::-webkit-input-placeholder {
+  color: inherit;
+  /*Fix opacity issue on Firefox*/
+  opacity: 1;
+}
+
+body section .content .block .my-form :-ms-input-placeholder {
+  color: inherit;
+  /*Fix opacity issue on Firefox*/
+  opacity: 1;
+}
+
+body section .content .block .my-form ::-ms-input-placeholder {
+  color: inherit;
+  /*Fix opacity issue on Firefox*/
+  opacity: 1;
+}
+
+body section .content .block .my-form ::placeholder {
+  color: inherit;
+  /*Fix opacity issue on Firefox*/
+  opacity: 1;
+}
+
+body section .content .block .my-form select:focus,
+body section .content .block .my-form input:focus,
+body section .content .block .my-form textarea:focus,
+body section .content .block .my-form button:enabled:hover,
+body section .content .block .my-form button:focus {
+  background: var(--bgFormElsFocus);
+}
+
+body section .content .block .my-form select:focus,
+body section .content .block .my-form input:focus,
+body section .content .block .my-form textarea:focus {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+body section .content .block .my-form *:required,
+body section .content .block .my-form select {
+  background-repeat: no-repeat;
+  background-position: center right 3%;
+  background-size: 15px 15px;
+}
+
+body section .content .block .my-form *:required {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg);
+}
+
+body section .content .block .my-form select {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/down.svg);
+}
+
+body section .content .block .my-form *:disabled {
+  cursor: default;
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+
+body section .content .block .my-form .required-msg {
+  display: none;
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg) no-repeat center left/15px 15px;
+  padding-left: 20px;
+}
+
+body section .content .block .my-form .btn-grid {
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: -webkit-filter 0.2s;
+  transition: -webkit-filter 0.2s;
+  transition: filter 0.2s;
+  transition: filter 0.2s, -webkit-filter 0.2s;
+}
+
+body section .content .block .my-form button {
+  font-weight: bold;
+}
+
+body section .content .block .my-form button > * {
+  -webkit-transition: -webkit-transform 0.4s ease-in-out;
+  transition: -webkit-transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+  transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
+}
+
+body section .content .block .my-form button .back {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-110%, -50%);
+          transform: translate(-110%, -50%);
+}
+
+body section .content .block .my-form button:enabled:hover .back,
+body section .content .block .my-form button:focus .back {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+body section .content .block .my-form button:enabled:hover .front,
+body section .content .block .my-form button:focus .front {
+  -webkit-transform: translateX(110%);
+          transform: translateX(110%);
+}
+
+body section .content .block .my-form input[type="checkbox"] {
+  position: absolute;
+  left: -9999px;
+}
+
+body section .content .block .my-form input[type="checkbox"] + label {
+  position: relative;
+  display: inline-block;
+  padding-left: 2rem;
+  -webkit-transition: background 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+  transition: background 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
+}
+
+body section .content .block .my-form input[type="checkbox"] + label::before,
+body section .content .block .my-form input[type="checkbox"] + label::after {
+  content: '';
+  position: absolute;
+}
+
+body section .content .block .my-form input[type="checkbox"] + label::before {
+  left: 0;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--white);
+}
+
+body section .content .block .my-form input[type="checkbox"]:checked + label::before {
+  background: var(--red);
+}
+
+body section .content .block .my-form .grid {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1.5rem;
+}
+
+body section .content .block .my-form .grid-2 {
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+body section .content .block .my-form .grid-3 {
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body section .content .block .my-form .grid > *:not(:last-child) {
+  margin-bottom: 0;
+}
+
+body section .content .block .my-form .required-msg {
+  display: block;
+}
+
+@media screen and (min-width: 541px) {
+  body section .content .block .my-form input[type="checkbox"] + label::before {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  body section .content .block .my-form input[type="checkbox"]:checked + label::after {
+    top: 3px;
+  }
 }
 
 body section .content .block .splide {
@@ -365,7 +643,7 @@ body section .content .block .splide {
 
 @media screen and (max-width: 930px) {
   body section .content .block .splide {
-    width: 100%;
+    width: 85%;
   }
 }
 
@@ -415,7 +693,7 @@ body section .content .block .splide__pagination li {
 }
 
 body section .content .block .splide__progress__bar {
-  width: 0;
+  width: 1;
 }
 
 body section .content .block .splide {
@@ -444,13 +722,22 @@ body section .content .block .splide__slide {
           flex-direction: column;
 }
 
+body section .content .block .splide__slide div > p {
+  margin: auto;
+}
+
+body section .content .block .splide__slide div > p:first-child {
+  padding-top: 1em;
+}
+
 body section .content .block .splide__slide img {
   vertical-align: bottom;
 }
 
-body section .content .block .splide__slide i {
+body section .content .block .splide__slide svg {
   vertical-align: bottom;
-  height: 80%;
+  height: 30%;
+  width: auto;
 }
 
 body section .content .block .splide__spinner {
@@ -670,7 +957,7 @@ body section .content .block .splide__progress__bar {
 
 body section .content .block .splide__slide {
   -webkit-tap-highlight-color: transparent;
-  width: 50%;
+  width: 33.3333333333333333333333333333333333333333333333333333333%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -686,6 +973,10 @@ body section .content .block .splide__slide {
   body section .content .block .splide__slide {
     width: 100%;
   }
+}
+
+body section .content .block .splide__slide div > p {
+  max-width: 90%;
 }
 
 body section .content .block .splide__slide:focus {
@@ -1004,6 +1295,15 @@ body section .content .block .cardl {
   padding-top: 150px;
   padding-bottom: 0%;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   max-width: 100%;
   height: 75vh;
   margin: 0 auto;
@@ -1071,6 +1371,374 @@ body section .content .block .card:nth-child(8n) {
   top: 160px;
 }
 
+body section .content .block .card:nth-child(9n) {
+  top: 180px;
+}
+
+body section .content .block .card:nth-child(10n) {
+  top: 200px;
+}
+
+body section .content .block .card:nth-child(11n) {
+  top: 220px;
+}
+
+body section .content .block .card:nth-child(12n) {
+  top: 240px;
+}
+
+body section .content .block .card:nth-child(13n) {
+  top: 260px;
+}
+
+body section .content .block .card:nth-child(14n) {
+  top: 280px;
+}
+
+body section .content .block .card:nth-child(15n) {
+  top: 300px;
+}
+
+body section .content .block .card:nth-child(16n) {
+  top: 320px;
+}
+
+body section .content .block .card:nth-child(17n) {
+  top: 340px;
+}
+
+body section .content .block .card:nth-child(18n) {
+  top: 360px;
+}
+
+body section .content .block .card:nth-child(19n) {
+  top: 380px;
+}
+
+body section .content .block .card:nth-child(20n) {
+  top: 400px;
+}
+
+body section .content .block .card:nth-child(21n) {
+  top: 420px;
+}
+
+body section .content .block .card:nth-child(22n) {
+  top: 440px;
+}
+
+body section .content .block .card:nth-child(23n) {
+  top: 460px;
+}
+
+body section .content .block .card:nth-child(24n) {
+  top: 480px;
+}
+
+body section .content .block .card:nth-child(25n) {
+  top: 500px;
+}
+
+body section .content .block .card:nth-child(26n) {
+  top: 520px;
+}
+
+body section .content .block .card:nth-child(27n) {
+  top: 540px;
+}
+
+body section .content .block .card:nth-child(28n) {
+  top: 560px;
+}
+
+body section .content .block .card:nth-child(29n) {
+  top: 580px;
+}
+
+body section .content .block .card:nth-child(30n) {
+  top: 600px;
+}
+
+body section .content .block .card:nth-child(31n) {
+  top: 620px;
+}
+
+body section .content .block .card:nth-child(32n) {
+  top: 640px;
+}
+
+body section .content .block .card:nth-child(33n) {
+  top: 660px;
+}
+
+body section .content .block .card:nth-child(34n) {
+  top: 680px;
+}
+
+body section .content .block .card:nth-child(35n) {
+  top: 700px;
+}
+
+body section .content .block .card:nth-child(36n) {
+  top: 720px;
+}
+
+body section .content .block .card:nth-child(37n) {
+  top: 740px;
+}
+
+body section .content .block .card:nth-child(38n) {
+  top: 760px;
+}
+
+body section .content .block .card:nth-child(39n) {
+  top: 780px;
+}
+
+body section .content .block .card:nth-child(40n) {
+  top: 800px;
+}
+
+body section .content .block .card:nth-child(41n) {
+  top: 820px;
+}
+
+body section .content .block .card:nth-child(42n) {
+  top: 840px;
+}
+
+body section .content .block .card:nth-child(43n) {
+  top: 860px;
+}
+
+body section .content .block .card:nth-child(44n) {
+  top: 880px;
+}
+
+body section .content .block .card:nth-child(45n) {
+  top: 900px;
+}
+
+body section .content .block .card:nth-child(46n) {
+  top: 920px;
+}
+
+body section .content .block .card:nth-child(47n) {
+  top: 940px;
+}
+
+body section .content .block .card:nth-child(48n) {
+  top: 960px;
+}
+
+body section .content .block .card:nth-child(49n) {
+  top: 980px;
+}
+
+body section .content .block .card:nth-child(50n) {
+  top: 1000px;
+}
+
+body section .content .block .card:nth-child(51n) {
+  top: 1020px;
+}
+
+body section .content .block .card:nth-child(52n) {
+  top: 1040px;
+}
+
+body section .content .block .card:nth-child(53n) {
+  top: 1060px;
+}
+
+body section .content .block .card:nth-child(54n) {
+  top: 1080px;
+}
+
+body section .content .block .card:nth-child(55n) {
+  top: 1100px;
+}
+
+body section .content .block .card:nth-child(56n) {
+  top: 1120px;
+}
+
+body section .content .block .card:nth-child(57n) {
+  top: 1140px;
+}
+
+body section .content .block .card:nth-child(58n) {
+  top: 1160px;
+}
+
+body section .content .block .card:nth-child(59n) {
+  top: 1180px;
+}
+
+body section .content .block .card:nth-child(60n) {
+  top: 1200px;
+}
+
+body section .content .block .card:nth-child(61n) {
+  top: 1220px;
+}
+
+body section .content .block .card:nth-child(62n) {
+  top: 1240px;
+}
+
+body section .content .block .card:nth-child(63n) {
+  top: 1260px;
+}
+
+body section .content .block .card:nth-child(64n) {
+  top: 1280px;
+}
+
+body section .content .block .card:nth-child(65n) {
+  top: 1300px;
+}
+
+body section .content .block .card:nth-child(66n) {
+  top: 1320px;
+}
+
+body section .content .block .card:nth-child(67n) {
+  top: 1340px;
+}
+
+body section .content .block .card:nth-child(68n) {
+  top: 1360px;
+}
+
+body section .content .block .card:nth-child(69n) {
+  top: 1380px;
+}
+
+body section .content .block .card:nth-child(70n) {
+  top: 1400px;
+}
+
+body section .content .block .card:nth-child(71n) {
+  top: 1420px;
+}
+
+body section .content .block .card:nth-child(72n) {
+  top: 1440px;
+}
+
+body section .content .block .card:nth-child(73n) {
+  top: 1460px;
+}
+
+body section .content .block .card:nth-child(74n) {
+  top: 1480px;
+}
+
+body section .content .block .card:nth-child(75n) {
+  top: 1500px;
+}
+
+body section .content .block .card:nth-child(76n) {
+  top: 1520px;
+}
+
+body section .content .block .card:nth-child(77n) {
+  top: 1540px;
+}
+
+body section .content .block .card:nth-child(78n) {
+  top: 1560px;
+}
+
+body section .content .block .card:nth-child(79n) {
+  top: 1580px;
+}
+
+body section .content .block .card:nth-child(80n) {
+  top: 1600px;
+}
+
+body section .content .block .card:nth-child(81n) {
+  top: 1620px;
+}
+
+body section .content .block .card:nth-child(82n) {
+  top: 1640px;
+}
+
+body section .content .block .card:nth-child(83n) {
+  top: 1660px;
+}
+
+body section .content .block .card:nth-child(84n) {
+  top: 1680px;
+}
+
+body section .content .block .card:nth-child(85n) {
+  top: 1700px;
+}
+
+body section .content .block .card:nth-child(86n) {
+  top: 1720px;
+}
+
+body section .content .block .card:nth-child(87n) {
+  top: 1740px;
+}
+
+body section .content .block .card:nth-child(88n) {
+  top: 1760px;
+}
+
+body section .content .block .card:nth-child(89n) {
+  top: 1780px;
+}
+
+body section .content .block .card:nth-child(90n) {
+  top: 1800px;
+}
+
+body section .content .block .card:nth-child(91n) {
+  top: 1820px;
+}
+
+body section .content .block .card:nth-child(92n) {
+  top: 1840px;
+}
+
+body section .content .block .card:nth-child(93n) {
+  top: 1860px;
+}
+
+body section .content .block .card:nth-child(94n) {
+  top: 1880px;
+}
+
+body section .content .block .card:nth-child(95n) {
+  top: 1900px;
+}
+
+body section .content .block .card:nth-child(96n) {
+  top: 1920px;
+}
+
+body section .content .block .card:nth-child(97n) {
+  top: 1940px;
+}
+
+body section .content .block .card:nth-child(98n) {
+  top: 1960px;
+}
+
+body section .content .block .card:nth-child(99n) {
+  top: 1980px;
+}
+
+body section .content .block .card:nth-child(100n) {
+  top: 2000px;
+}
+
 body section .content .block .row {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1086,6 +1754,7 @@ body section .content .block .row {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    row-gap: 6vh;
   }
 }
 
