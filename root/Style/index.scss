@@ -9,11 +9,11 @@ $darkft: white;
 $lightft: rgb(37, 0, 131);
 
 :root {
-    --white: #afafaf;
-    --red: #e31b23;
-    --borderFormEls: hsl(0, 0%, 10%);
-    --bgFormEls: hsl(0, 0%, 14%);
-    --bgFormElsFocus: hsl(0, 7%, 20%);
+    --white: white;
+    --green: #84ff00;
+    --borderFormEls: hsl(150, 100%, 50%);
+    --bgFormEls: linear-gradient(to right, rgb(20, 30, 48, 0.3), rgba(36, 59, 85, 0.3));
+    --bgFormElsFocus: linear-gradient(to right, rgb(20, 30, 48, 0.8), rgba(36, 59, 85, 0.8));
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
@@ -377,6 +377,22 @@ body {
 
                 .my-form {
                     width: 90%;
+
+                    p {
+                        margin-bottom: 0px;
+                        line-height: 2.5vmin;
+                        font-size: 0.95vmax;
+
+                        @media screen and (max-width: 1500px) {
+                            line-height: 2.1vmax;
+                            font-size: 1.5vmax;
+                        }
+
+                        @media screen and (max-width: 600px) {
+                            line-height: 2vmax;
+                            font-size: 2vmax;
+                        }
+                    }
                 }
 
                 ul {
@@ -392,7 +408,7 @@ body {
                     margin-bottom: 1.5rem;
                 }
 
-                .my-form input, 
+                .my-form input,
                 .my-form button,
                 .my-form textarea {
                     border-radius: 1em;
@@ -406,8 +422,8 @@ body {
                     line-height: 1.5;
                     padding: 15px 10px;
                     border: 1px solid var(--borderFormEls);
-                    color: var(--white);
                     background: var(--bgFormEls);
+                    color: var(--white);
                     transition: background-color 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25),
                         transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
                 }
@@ -444,11 +460,7 @@ body {
                 }
 
                 .my-form *:required {
-                    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg);
-                }
-
-                .my-form select {
-                    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/down.svg);
+                    background: var(--bgFormEls);
                 }
 
                 .my-form *:disabled {
@@ -519,14 +531,14 @@ body {
 
                 .my-form input[type="checkbox"]+label::before {
                     left: 0;
-                    top: 6px;
-                    width: 18px;
-                    height: 18px;
+                    top: -0.1em;
+                    width: 1em;
+                    height: 1em;
                     border: 2px solid var(--white);
                 }
 
                 .my-form input[type="checkbox"]:checked+label::before {
-                    background: var(--red);
+                    background: var(--green);
                 }
 
                 .my-form .grid {

@@ -309,9 +309,9 @@
                                             exercitationem earum laborum ad a sequi!</p>
                                     </div>
                                 </li>
-                                <li class="splide__slide"> <i class="fa-brands fa-git-alt" style="color: #e44632;"></i>
+                                <li class="splide__slide"> <i class="fa-solid fa-globe" style="color: #06cbf6;"></i>
                                     <div>
-                                        <p>GitHub</p>
+                                        <p>Networking</p>
                                         <br />
                                         <p style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur
                                             adipisicing elit. Harum, perspiciatis blanditiis
@@ -339,9 +339,9 @@
                                             exercitationem earum laborum ad a sequi!</p>
                                     </div>
                                 </li>
-                                <li class="splide__slide"><i class="fa-solid fa-globe" style="color: #0055c0;"></i>
+                                <li class="splide__slide"> <i class="fa-brands fa-git-alt" style="color: #e44632;"></i>
                                     <div>
-                                        <p>Networking</p>
+                                        <p>Github</p>
                                         <br />
                                         <p style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur
                                             adipisicing elit. Harum, perspiciatis blanditiis
@@ -355,7 +355,7 @@
                                     </div>
                                 </li>
                                 <li class="splide__slide"><i class="fa-brands fa-raspberry-pi"
-                                        style="color: #0055c0;"></i>
+                                        style="color: #bf1246;"></i>
                                     <div>
                                         <p>Microcontroller</p>
                                         <br />
@@ -370,7 +370,7 @@
                                             exercitationem earum laborum ad a sequi!</p>
                                     </div>
                                 </li>
-                                <li class="splide__slide"><i class="fa-solid fa-server" style="color: #0055c0;"></i>
+                                <li class="splide__slide"><i class="fa-solid fa-server" style="color: #00314f;"></i>
                                     <div>
                                         <p>Server</p>
                                         <br />
@@ -385,7 +385,7 @@
                                             exercitationem earum laborum ad a sequi!</p>
                                     </div>
                                 </li>
-                                <li class="splide__slide"><i class="fa-brands fa-linux" style="color: #0055c0;"></i>
+                                <li class="splide__slide"><i class="fa-brands fa-linux" style="color: #fdfdfb;"></i>
                                     <div>
                                         <p>Linux</p>
                                         <br />
@@ -400,7 +400,7 @@
                                             exercitationem earum laborum ad a sequi!</p>
                                     </div>
                                 </li>
-                                <li class="splide__slide"><i class="fa-solid fa-cloud" style="color: #0055c0;"></i>
+                                <li class="splide__slide"><i class="fa-solid fa-cloud" style="color: #0a738e;"></i>
                                     <div>
                                         <p>Cloud Computing</p>
                                         <br />
@@ -532,15 +532,14 @@
                         <div class="container">
                             <ul>
                                 <li>
-                                    <div class="grid grid-2">
+                                    <div class="grid grid-1">
                                         <input type="text" id="Name" placeholder="Name" required>
-                                        <input type="text" id="Surname" placeholder="Surname" required>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="grid grid-2">
                                         <input type="email" id="Email" placeholder="Email" required>
-                                        <input type="tel" id="Phone" placeholder="Phone">
+                                        <input type="tel" id="Phone" placeholder="Phone Number">
                                     </div>
                                 </li>
                                 <li>
@@ -548,17 +547,20 @@
                                 </li>
                                 <li>
                                     <input type="checkbox" id="terms">
-                                    <label for="terms">Confirm</a></label>
+                                    <label for="terms">I'm not a robot</a></label>
                                 </li>
-                                <li>
-                                    <div class="grid grid-3">
-                                        <div class="required-msg">REQUIRED FIELDS</div>
+                                <li style="margin-bottom: 0px;">
+                                    <div class="grid grid-2">
                                         <button id="Submit" onclick="sendMail()" class="btn-grid" type="submit"
                                             disabled>
-                                            <span class="front">SUBMIT</span>
+                                            <span class="front">
+                                                <p>SUBMIT</p>
+                                            </span>
                                         </button>
-                                        <button class="btn-grid" type="reset" disabled>
-                                            <span class="front">RESET</span>
+                                        <button class="btn-grid" type="reset" id="reset" disabled>
+                                            <span class="front">
+                                                <p>RESET</p>
+                                            </span>
                                         </button>
                                     </div>
                                 </li>
@@ -678,25 +680,29 @@
         function sendMail(params) {
             var tempv = {
                 name: document.getElementById('Name').value,
-                surname: document.getElementById('Surname').value,
                 email: document.getElementById('Email').value,
                 phone: document.getElementById('Phone').value,
                 message: document.getElementById('msg').value,
             };
-            emailjs.send('service_svyxp0d', 'template_p1xdv1g', tempv);
+            if (tempv.name != "" && tempv.email != "") {
+                emailjs.send('service_svyxp0d', 'template_p1xdv1g', tempv).then((result) => {
+                    alert("Successfully sent!");
+
+                    const inputs = document.querySelectorAll('#Name, #msg, #Email, #Phone');
+
+                    inputs.forEach(input => {
+                        input.value = '';
+                    });
+                }).catch((e) => {
+                    alert("Request was not submitted! Try again later");
+                });
+            }
         };
-        const btn = document.getElementById('Submit');
-        btn.addEventListener('click', function handleClick(event) {
-
-            const inputs = document.querySelectorAll('#Name, #msg, #Surname, #Email, #Phone');
-
-            inputs.forEach(input => {
-                input.value = '';
-            });
-        });
     </script>
     <script>
+        //checkbox colorization
         const checkbox = document.querySelector('.my-form input[type="checkbox"]');
+        const reset = document.querySelector('#reset');
         const btns = document.querySelectorAll(".my-form button");
 
         checkbox.addEventListener("change", function () {
@@ -704,6 +710,17 @@
             for (const btn of btns) {
                 checked ? (btn.disabled = false) : (btn.disabled = true);
             }
+        });
+        reset.addEventListener("click", function () {
+            for (const btn of btns) {
+                (btn.disabled = true);
+            }
+            (checkbox.checked = false);
+            const inputs = document.querySelectorAll('#Name, #msg, #Email, #Phone');
+
+            inputs.forEach(input => {
+                input.value = '';
+            });
         });
     </script>
     <script src="/root/Particles/particles.js"></script>
