@@ -348,7 +348,7 @@ body section .content p {
   font-size: 0.95vmax;
   margin-bottom: 10px;
 }
-@media screen and (max-width: 1500px) {
+@media screen and (max-width: 1000px) {
   body section .content p {
     line-height: 2.1vmax;
     font-size: 1.4vmax;
@@ -673,7 +673,7 @@ body section .content .block .splide__slide img {
 }
 body section .content .block .splide__slide svg {
   vertical-align: bottom;
-  height: 30%;
+  height: 20%;
   width: auto;
 }
 body section .content .block .splide__spinner {

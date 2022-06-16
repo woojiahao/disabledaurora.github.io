@@ -328,7 +328,7 @@ body {
                 font-size: 0.95vmax;
                 margin-bottom: 10px;
 
-                @media screen and (max-width: 1500px) {
+                @media screen and (max-width: 1000px) {
                     line-height: 2.1vmax;
                     font-size: 1.4vmax;
                 }
@@ -663,7 +663,7 @@ body {
 
                 .splide__slide svg {
                     vertical-align: bottom;
-                    height: 30%;
+                    height: 20%;
                     width: auto;
                 }
 
